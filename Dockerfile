@@ -34,3 +34,6 @@ RUN ln -s ../lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm; \
 
 # Deno
 COPY --from=denoland/deno:1.14.3 /usr/bin/deno /usr/bin/deno
+
+# Docker
+COPY --from=docker:20.10.9 /usr/local/bin/docker /usr/local/bin/docker

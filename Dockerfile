@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update; \
     apt-get install -y --no-install-recommends \
     gosu sudo \
-    aria2 curl certbot emacs-nox fzf git gnupg make cmake clang python3 tmux stow vim wget build-essential tree; \
+    aria2 curl certbot emacs-nox fzf git gnupg make cmake clang python3 tmux stow vim wget build-essential tree netcat-openbsd; \
     rm -rf /var/lib/apt/lists/*
     
 RUN apt-get update; \
@@ -14,6 +14,7 @@ RUN apt-get update; \
     apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"; \
     apt-get update && apt-get install terraform; \
     rm -rf /var/lib/apt/lists/*
+RUN COPY --from=golang:1.17.1-bullseye /etc/apt/sources.list /etc/apt/sources.list
 
 RUN mkdir -p /opt && \
     cd /opt && \

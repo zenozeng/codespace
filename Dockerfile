@@ -1,4 +1,4 @@
-FROM golang:1.17.1-bullseye
+FROM golang:1.17.3-bullseye
 
 ENV TZ=Asia/Shanghai
 ENV DEBIAN_FRONTEND=noninteractive
@@ -14,7 +14,7 @@ RUN apt-get update; \
     apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"; \
     apt-get update && apt-get install terraform; \
     rm -rf /var/lib/apt/lists/*
-RUN COPY --from=golang:1.17.1-bullseye /etc/apt/sources.list /etc/apt/sources.list
+RUN COPY --from=golang:1.17.3-bullseye /etc/apt/sources.list /etc/apt/sources.list
 
 RUN mkdir -p /opt && \
     cd /opt && \

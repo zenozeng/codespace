@@ -27,9 +27,9 @@ RUN mkdir -p /opt && \
 RUN curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && install minikube-linux-amd64 /usr/local/bin/minikube
 
 # Node.js
-COPY --from=node:16.10.0 /usr/local/include/node /usr/local/include/node
-COPY --from=node:16.10.0 /usr/local/lib/node_modules /usr/local/lib/node_modules
-COPY --from=node:16.10.0 /usr/local/bin/node /usr/local/bin/node
+COPY --from=node:17.1.0 /usr/local/include/node /usr/local/include/node
+COPY --from=node:17.1.0 /usr/local/lib/node_modules /usr/local/lib/node_modules
+COPY --from=node:17.1.0 /usr/local/bin/node /usr/local/bin/node
 RUN ln -s ../lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm; \
     ln -s ../lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx;
 
